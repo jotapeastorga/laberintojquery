@@ -1,28 +1,32 @@
-$(document).ready(function(){
+
+function tiempoCrono() {
+
     var tiempo = {
-                    hora: 0,
-                    minuto: 0,
-                    segundo: 0,
-                    centesima:0,
-                    corriendo : 0
+        hora: 0,
+        minuto: 0,
+        segundo: 0,
+        centesima: 0,
+        corriendo: 0
     };
-    $("button").click(function(){
-        if ( $(this).text() == 'Arrancar' ){
-            $(this).text('Parar');                        
-            tiempo.corriendo = setInterval(function(){
+
+
+    $("body").keydown(function (xxx) {
+        if (xxx.which == 39) {
+            bandera = false;
+            tiempo.corriendo = setInterval(function () {
                 // centesimas
                 tiempo.centesima++;
-                if(tiempo.centesima >= 100){
-                    tiempo.centesima =0;
+                if (tiempo.centesima >= 100) {
+                    tiempo.centesima = 0;
                     tiempo.segundo++;
-                }  
+                }
                 // Segundos
-                if(tiempo.segundo >= 60){
+                if (tiempo.segundo >= 60) {
                     tiempo.segundo = 0;
                     tiempo.minuto++;
-                }      
+                }
                 // Minutos
-                if(tiempo.minuto >= 60){
+                if (tiempo.minuto >= 60) {
                     tiempo.minuto = 0;
                     tiempo.hora++;
                 }
@@ -32,10 +36,10 @@ $(document).ready(function(){
                 $("#centesima").text(tiempo.centesima < 10 ? '0' + tiempo.centesima : tiempo.centesima);
             }, 10);
         }
-        else 
-        {
-            $(this).text('Stop');
-            clearInterval(tiempo.corriendo);
-        }
-    })          
-});
+        // $(this).text('Stop');
+        //clearInterval(tiempo.corriendo);
+
+    })
+
+}
+

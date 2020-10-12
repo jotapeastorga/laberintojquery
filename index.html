@@ -114,6 +114,8 @@
 
         if (xxx.which == 39) {
           if (validar((x + 8), y)) {
+            tiempoCrono();
+            console.log('2');
             x = x + 8;
             $("#capa").css("left", x + "px");
             ganaste($("#capa").position());
@@ -148,7 +150,6 @@
       <div id="capa"></div>
     </div>
     <div id="cronometro">
-      <div class="contenedor">
         <div id="hora">00</div>
         <div class="divisor">:</div>
         <div id="minuto">00</div>
@@ -156,10 +157,8 @@
         <div id="segundo">00</div>
         <div class="divisor">:</div>
         <div id="centesima">00</div>
-      </div>
-      <button>Arrancar</button>
     </div>
-    
+
   </div>
 </body>
 
