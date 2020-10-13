@@ -17,7 +17,7 @@
     function ganaste(lugar,minu,segu,mise) {
       let lx = lugar.left;
       let ty = lugar.top;
-      console.log(lx + ' y ' + ty);
+      //console.log(lx + ' y ' + ty);
       if (ty === 359 && (lx === 640 || lx === 632)) {
         alert('Ganaste!! en ' + minu + ':' + segu + ':' + mise);
 
@@ -93,10 +93,30 @@
       };
 
       if (lx >= 360 && ty === 343) {
-        if (lx < 496) {
+        if (lx <= 496) {
           return false;
         };
       };
+
+      if (lx === 504 && ty >= 55) {
+        if (ty <= 335) {
+          return false;
+        };
+      };
+
+      if (lx >= 512 && ty === 55) {
+        if (lx <= 624) {
+          return false;
+        };
+      };
+
+      if (lx === 624 && ty >= 63) {
+        if (ty <= 351) {
+          return false;
+        };
+      };
+
+      
 
       return true;
     };
@@ -121,8 +141,6 @@
               tiempoCrono("nada");
               bandera = false;
             }
-
-            console.log('2');
             x = x + 8;
             $("#capa").css("left", x + "px");
             ganaste($("#capa").position(),$("#minuto").text(),$("#segundo").text(),$("#centesima").text());
