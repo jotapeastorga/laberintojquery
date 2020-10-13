@@ -41,7 +41,9 @@ function reiniciar() {
     $("#minuto").text('00');
     $("#segundo").text('00');
     $("#centesima").text('00');
-    alert('Perdiste :(');
+    alert('Perdiste :(, intentalo de nuevo');
+    $("#capa").css("left", 40 + "px");
+    $("#capa").css("top", 47 + "px");
 
 
 }

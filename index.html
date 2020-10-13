@@ -30,10 +30,6 @@
     function validar(lx, ty) {
       console.log(' lx' + lx + ' validador ' + 'ty ' + ty);
       if (lx == 32 && ty == 47) {
-        if (!bandera) {
-          reiniciar();
-          bandera = true;
-        }
         return false;
         //atras
       };
@@ -158,6 +154,13 @@
             x = x - 8;
             $("#capa").css("left", x + "px");
             ganaste($("#capa").position(), $("#minuto").text(), $("#segundo").text(), $("#centesima").text());
+          } else {
+            if (!bandera) {
+              reiniciar();
+              bandera = true;
+              x = 40;
+              y = 47;
+            }
           }
         }
 
@@ -171,6 +174,13 @@
             x = x + 8;
             $("#capa").css("left", x + "px");
             ganaste($("#capa").position(), $("#minuto").text(), $("#segundo").text(), $("#centesima").text());
+          } else {
+            if (!bandera) {
+              reiniciar();
+              bandera = true;
+              x = 40;
+              y = 47;
+            }
           }
         }
 
@@ -179,6 +189,13 @@
             y = y - 8;
             $("#capa").css("top", y + "px");
             ganaste($("#capa").position(), $("#minuto").text(), $("#segundo").text(), $("#centesima").text());
+          } else {
+            if (!bandera) {
+              reiniciar();
+              bandera = true;
+              x = 40;
+              y = 47;
+            }
           }
         }
 
@@ -187,6 +204,13 @@
             y = y + 8;
             $("#capa").css("top", y + "px");
             ganaste($("#capa").position(), $("#minuto").text(), $("#segundo").text(), $("#centesima").text());
+          } else {
+            if (!bandera) {
+              reiniciar();
+              bandera = true;
+              x = 40;
+              y = 47;
+            }
           }
         }
 
@@ -203,15 +227,15 @@
 
     </div>
 
-  <div id="cronometro">
-    <div id="minuto">00</div>
-    <div class="divisor">:</div>
-    <div id="segundo">00</div>
-    <div class="divisor">:</div>
-    <div id="centesima">00</div>
-  </div>
+    <div id="cronometro">
+      <div id="minuto">00</div>
+      <div class="divisor">:</div>
+      <div id="segundo">00</div>
+      <div class="divisor">:</div>
+      <div id="centesima">00</div>
+    </div>
 
-</div>
+  </div>
 </body>
 
 </html>
