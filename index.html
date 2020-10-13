@@ -12,13 +12,14 @@
   <script>
     var x = 40;
     var y = 47;
+    var bandera = true;
 
-    function ganaste(lugar) {
+    function ganaste(lugar,minu,segu,mise) {
       let lx = lugar.left;
       let ty = lugar.top;
       console.log(lx + ' y ' + ty);
       if (ty === 359 && (lx === 640 || lx === 632)) {
-        alert('Ganaste!!');
+        alert('Ganaste!! en ' + minu + ':' + segu + ':' + mise);
 
         $("#capa").css("left", 40 + "px");
         $("#capa").css("top", 47 + "px");
@@ -29,6 +30,7 @@
     function validar(lx, ty) {
       console.log(' lx' + lx + ' validador ' + 'ty ' + ty);
       if (lx == 32 && ty == 47) {
+        tiempoCrono('reseteo');
         return false;
         //atras
       };
@@ -108,17 +110,22 @@
           if (validar((x - 8), y)) {
             x = x - 8;
             $("#capa").css("left", x + "px");
-            ganaste($("#capa").position());
+            ganaste($("#capa").position(),$("#minuto").text(),$("#segundo").text(),$("#centesima").text());
           }
         }
 
         if (xxx.which == 39) {
           if (validar((x + 8), y)) {
-            tiempoCrono();
+            if (bandera) {
+              console.log();
+              tiempoCrono("nada");
+              bandera = false;
+            }
+
             console.log('2');
             x = x + 8;
             $("#capa").css("left", x + "px");
-            ganaste($("#capa").position());
+            ganaste($("#capa").position(),$("#minuto").text(),$("#segundo").text(),$("#centesima").text());
           }
         }
 
@@ -126,7 +133,7 @@
           if (validar(x, (y - 8))) {
             y = y - 8;
             $("#capa").css("top", y + "px");
-            ganaste($("#capa").position());
+            ganaste($("#capa").position(),$("#minuto").text(),$("#segundo").text(),$("#centesima").text());
           }
         }
 
@@ -134,7 +141,7 @@
           if (validar(x, (y + 8))) {
             y = y + 8;
             $("#capa").css("top", y + "px");
-            ganaste($("#capa").position());
+            ganaste($("#capa").position(),$("#minuto").text(),$("#segundo").text(),$("#centesima").text());
           }
         }
 
@@ -150,13 +157,11 @@
       <div id="capa"></div>
     </div>
     <div id="cronometro">
-        <div id="hora">00</div>
-        <div class="divisor">:</div>
-        <div id="minuto">00</div>
-        <div class="divisor">:</div>
-        <div id="segundo">00</div>
-        <div class="divisor">:</div>
-        <div id="centesima">00</div>
+      <div id="minuto">00</div>
+      <div class="divisor">:</div>
+      <div id="segundo">00</div>
+      <div class="divisor">:</div>
+      <div id="centesima">00</div>
     </div>
 
   </div>

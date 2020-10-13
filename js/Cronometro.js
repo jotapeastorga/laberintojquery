@@ -1,5 +1,5 @@
 
-function tiempoCrono() {
+function tiempoCrono(estado) {
 
     var tiempo = {
         hora: 0,
@@ -10,36 +10,35 @@ function tiempoCrono() {
     };
 
 
-    $("body").keydown(function (xxx) {
-        if (xxx.which == 39) {
-            bandera = false;
-            tiempo.corriendo = setInterval(function () {
-                // centesimas
-                tiempo.centesima++;
-                if (tiempo.centesima >= 100) {
-                    tiempo.centesima = 0;
-                    tiempo.segundo++;
-                }
-                // Segundos
-                if (tiempo.segundo >= 60) {
-                    tiempo.segundo = 0;
-                    tiempo.minuto++;
-                }
-                // Minutos
-                if (tiempo.minuto >= 60) {
-                    tiempo.minuto = 0;
-                    tiempo.hora++;
-                }
-                $("#hora").text(tiempo.hora < 10 ? '0' + tiempo.hora : tiempo.hora);
-                $("#minuto").text(tiempo.minuto < 10 ? '0' + tiempo.minuto : tiempo.minuto);
-                $("#segundo").text(tiempo.segundo < 10 ? '0' + tiempo.segundo : tiempo.segundo);
-                $("#centesima").text(tiempo.centesima < 10 ? '0' + tiempo.centesima : tiempo.centesima);
-            }, 10);
+    tiempo.corriendo = setInterval(function () {
+        // centesimas
+        tiempo.centesima++;
+        if (tiempo.centesima >= 100) {
+            tiempo.centesima = 0;
+            tiempo.segundo++;
         }
-        // $(this).text('Stop');
-        //clearInterval(tiempo.corriendo);
+        // Segundos
+        if (tiempo.segundo >= 60) {
+            tiempo.segundo = 0;
+            tiempo.minuto++;
+        }
+        // Minutos
+        if (tiempo.minuto >= 60) {
+            tiempo.minuto = 0;
+            tiempo.hora++;
+        }
+        $("#hora").text(tiempo.hora < 10 ? '0' + tiempo.hora : tiempo.hora);
+        $("#minuto").text(tiempo.minuto < 10 ? '0' + tiempo.minuto : tiempo.minuto);
+        $("#segundo").text(tiempo.segundo < 10 ? '0' + tiempo.segundo : tiempo.segundo);
+        $("#centesima").text(tiempo.centesima < 10 ? '0' + tiempo.centesima : tiempo.centesima);
+    }, 10);
 
-    })
+    if (estado === 'reseteo') {
+        clearInterval(tiempo.corriendo);
+        alert('Perdiste :(');
+    }
+
+
 
 }
 
