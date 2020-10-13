@@ -1,51 +1,52 @@
-
-body{
+body {
   margin: 0px;
   padding: 0px;
 }
 
-#contenedor{
+#contenedor {
   width: 100%;
   height: auto;
 }
 
-#laberinto{
+#laberinto {
   width: 700px;
   height: 500px;
   background-image: url(../img/laberinto2.png);
-  background-size: 100% ,100%;
+  background-size: 100%, 100%;
 }
 
-#capa{
+#capa {
   width: 40px;
   height: 40px;
   background-color: red;
   position: absolute;
   left: 40px;
   top: 47px;
-
 }
 
-#cronometro{
-  margin:0% auto 0;
-  width:100%;
-}
 #cronometro {
-  display:table;
-  background:#777;
-  color:#eee;
-  font-weight:bold;
-  width:100%;
-  text-align:center;
-  text-shadow:1% 1% 4% #999;
+  margin: 0% auto 0;
+  width: 100%;
 }
-#cronometro div{
-  display:table-cell;
-  font-size:200%;
-  padding:1%;
-  width:10%;
+
+#cronometro {
+  display: table;
+  background: #777;
+  color: #eee;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  text-shadow: 1% 1% 4% #999;
 }
-#cronometro .divisor{
-  width:5%;
-  color:#ddd;
+
+#cronometro div {
+  display: table-cell;
+  font-size: 200%;
+  padding: 1%;
+  width: 10%;
+}
+
+#cronometro .divisor {
+  width: 5%;
+  color: #ddd;
 }

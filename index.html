@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Juegazo</title>
   <link rel="stylesheet" href="css/miestilo.css">
   <script src="js/jquery.js"></script>
   <script src="js/Cronometro.js"></script>
@@ -14,7 +14,7 @@
     var y = 47;
     var bandera = true;
 
-    function ganaste(lugar,minu,segu,mise) {
+    function ganaste(lugar, minu, segu, mise) {
       let lx = lugar.left;
       let ty = lugar.top;
       //console.log(lx + ' y ' + ty);
@@ -30,7 +30,10 @@
     function validar(lx, ty) {
       console.log(' lx' + lx + ' validador ' + 'ty ' + ty);
       if (lx == 32 && ty == 47) {
-        tiempoCrono('reseteo');
+        if(!bandera){
+          reiniciar();
+          bandera = true;
+        }
         return false;
         //atras
       };
@@ -116,7 +119,31 @@
         };
       };
 
-      
+      if (lx === 376 && ty >= 47) {
+        if (ty <= 311) {
+          return false;
+        };
+      };
+
+      if (lx === 488 && ty >= 39) {
+        if (ty <= 303) {
+          return false;
+        };
+      };
+
+      if (lx === 648 && ty >= 47) {
+        if (ty <= 327) {
+          return false;
+        };
+      };
+
+      if (lx >= 384 && ty === 311) {
+        if (lx <= 488) {
+          return false;
+        };
+      };
+
+
 
       return true;
     };
@@ -130,20 +157,20 @@
           if (validar((x - 8), y)) {
             x = x - 8;
             $("#capa").css("left", x + "px");
-            ganaste($("#capa").position(),$("#minuto").text(),$("#segundo").text(),$("#centesima").text());
+            ganaste($("#capa").position(), $("#minuto").text(), $("#segundo").text(), $("#centesima").text());
           }
         }
 
         if (xxx.which == 39) {
           if (validar((x + 8), y)) {
             if (bandera) {
-              console.log();
-              tiempoCrono("nada");
+              console.log('comenzo');
+              comenzar();
               bandera = false;
             }
             x = x + 8;
             $("#capa").css("left", x + "px");
-            ganaste($("#capa").position(),$("#minuto").text(),$("#segundo").text(),$("#centesima").text());
+            ganaste($("#capa").position(), $("#minuto").text(), $("#segundo").text(), $("#centesima").text());
           }
         }
 
@@ -151,7 +178,7 @@
           if (validar(x, (y - 8))) {
             y = y - 8;
             $("#capa").css("top", y + "px");
-            ganaste($("#capa").position(),$("#minuto").text(),$("#segundo").text(),$("#centesima").text());
+            ganaste($("#capa").position(), $("#minuto").text(), $("#segundo").text(), $("#centesima").text());
           }
         }
 
@@ -159,7 +186,7 @@
           if (validar(x, (y + 8))) {
             y = y + 8;
             $("#capa").css("top", y + "px");
-            ganaste($("#capa").position(),$("#minuto").text(),$("#segundo").text(),$("#centesima").text());
+            ganaste($("#capa").position(), $("#minuto").text(), $("#segundo").text(), $("#centesima").text());
           }
         }
 
