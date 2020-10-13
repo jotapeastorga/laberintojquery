@@ -46,7 +46,20 @@ function reiniciar() {
     $("#capa").css("top", 47 + "px");
 
 
-}
+};
+
+function ganasteLimpiar(){
+    clearInterval(tiempo.corriendo);
+    tiempo.centesima = 0;
+    tiempo.corriendo = 0;
+    tiempo.segundo = 0;
+    $("#minuto").text('00');
+    $("#segundo").text('00');
+    $("#centesima").text('00');
+    $("#capa").css("left", 40 + "px");
+    $("#capa").css("top", 47 + "px");
+
+};
 
 
 

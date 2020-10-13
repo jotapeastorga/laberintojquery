@@ -19,7 +19,10 @@
       let ty = lugar.top;
       //console.log(lx + ' y ' + ty);
       if (ty === 359 && (lx === 640 || lx === 632)) {
+        ganasteLimpiar();
         alert('Ganaste!! en ' + minu + ':' + segu + ':' + mise);
+        x = 40;
+        y = 47;
 
         $("#capa").css("left", 40 + "px");
         $("#capa").css("top", 47 + "px");
