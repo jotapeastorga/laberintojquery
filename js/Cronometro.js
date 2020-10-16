@@ -6,6 +6,7 @@ let tiempo = {
 };
 
 function comenzar() {
+    $("#ganaste").text('Suerte!!');
 
 
     tiempo.corriendo = setInterval(function () {
@@ -41,7 +42,8 @@ function reiniciar() {
     $("#minuto").text('00');
     $("#segundo").text('00');
     $("#centesima").text('00');
-    alert('Perdiste :(, intentalo de nuevo');
+    //alert('Perdiste :(, intentalo de nuevo');
+    $("#ganaste").text('Perdiste Intentalo de nuevo');
     $("#capa").css("left", 40 + "px");
     $("#capa").css("top", 47 + "px");
 

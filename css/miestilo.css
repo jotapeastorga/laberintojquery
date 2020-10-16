@@ -1,7 +1,12 @@
+
+
+
 body {
   margin: 0px;
   padding: 0px;
 }
+
+
 
 #contenedor {
   width: 100%;
@@ -14,6 +19,16 @@ body {
   height: 500px;
   background-image: url(../img/laberinto2.png);
   background-size: 100%, 100%;
+  
+}
+
+#ganaste {
+  float: right;
+  margin-top: -299px;
+  margin-right: 300px;
+  font-size: xx-large;
+  
+
 }
 
 #capa {

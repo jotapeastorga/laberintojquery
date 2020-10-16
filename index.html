@@ -25,7 +25,8 @@
       if (ty === 359 && (lx === 640 || lx === 632)) {
         ganasteLimpiar();
         bandera = true;
-        alert('Ganaste!! en ' + minu + ':' + segu + ':' + mise);
+        //alert('Ganaste!! en ' + minu + ':' + segu + ':' + mise);
+        $("#ganaste").text('Ganaste en ' + minu + ':' + segu + ':' + mise);
         x = 40;
         y = 47;
 
@@ -184,6 +185,7 @@
             ganaste($("#capa").position(), $("#minuto").text(), $("#segundo").text(), $("#centesima").text());
           } else {
             if (!bandera) {
+              
               reiniciar();
               bandera = true;
               x = 40;
@@ -232,7 +234,9 @@
   <div id="contenedor">
     <div id="laberinto">
       <div id="capa"></div>
-
+    </div>
+    <div id="ganaste">
+      Suerte!!
     </div>
 
     <div id="cronometro">
